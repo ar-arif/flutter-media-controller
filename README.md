@@ -41,12 +41,8 @@ flutter run
 
 ## Usage
 
-The project can be used to [describe the purpose of the project].
-
-## Contributing
-
-Contributions to the project are welcome. Please read the [contributing guidelines](https://github.com/username/flutter-project/blob/main/CONTRIBUTING.md) before submitting a pull request.
+The project can be used to control media players such as VLC on Android devices using Flutter. It can be utilized for controlling media playback on laptops as well.
 
 ## License
 
-The project is licensed under the [MIT License](https://github.com/username/flutter-project/blob/main/LICENSE).
+The project is licensed under the [MIT License](https://github.com/ar-arif/flutter-media-controller/blob/main/LICENSE).
