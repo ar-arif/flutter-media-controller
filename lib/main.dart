@@ -66,13 +66,21 @@ class _TVControllerScreenState extends State<TVControllerScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.fast_rewind),
-                    iconSize: 40,
-                    onPressed: () {
+                  GestureDetector(
+                    onLongPress: () {
+                      // Handle long press action
                       sendKey('rewind');
-                      logAction('Rewind button clicked');
+                      logAction('Rewind button long-pressed');
                     },
+                    child: IconButton(
+                      icon: const Icon(Icons.fast_rewind),
+                      iconSize: 40,
+                      onPressed: () {
+                        // Handle tap action
+                        sendKey('rewind');
+                        logAction('Rewind button clicked');
+                      },
+                    ),
                   ),
                   IconButton(
                     icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
@@ -87,13 +95,21 @@ class _TVControllerScreenState extends State<TVControllerScreen> {
                       });
                     },
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.fast_forward),
-                    iconSize: 40,
-                    onPressed: () {
+                  GestureDetector(
+                    onLongPress: () {
+                      // Handle long press action
                       sendKey('fast_forward');
-                      logAction('Fast forward button clicked');
+                      logAction('Fast forward button long-pressed');
                     },
+                    child: IconButton(
+                      icon: const Icon(Icons.fast_forward),
+                      iconSize: 40,
+                      onPressed: () {
+                        // Handle tap action
+                        sendKey('fast_forward');
+                        logAction('Fast forward button clicked');
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -104,21 +120,37 @@ class _TVControllerScreenState extends State<TVControllerScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.volume_down),
-                    iconSize: 40,
-                    onPressed: () {
+                  GestureDetector(
+                    onLongPress: () {
+                      // Handle long press action
                       sendKey('volume_down');
-                      logAction('Volume down button clicked');
+                      logAction('Volume down button long-pressed');
                     },
+                    child: IconButton(
+                      icon: const Icon(Icons.volume_down),
+                      iconSize: 40,
+                      onPressed: () {
+                        // Handle tap action
+                        sendKey('volume_down');
+                        logAction('Volume down button clicked');
+                      },
+                    ),
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.volume_up),
-                    iconSize: 40,
-                    onPressed: () {
+                  GestureDetector(
+                    onLongPress: () {
+                      // Handle long press action
                       sendKey('volume_up');
-                      logAction('Volume up button clicked');
+                      logAction('Volume up button long-pressed');
                     },
+                    child: IconButton(
+                      icon: const Icon(Icons.volume_up),
+                      iconSize: 40,
+                      onPressed: () {
+                        // Handle tap action
+                        sendKey('volume_up');
+                        logAction('Volume up button clicked');
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -150,7 +182,7 @@ class _TVControllerScreenState extends State<TVControllerScreen> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.volume_off),
+                    icon: const Icon(Icons.audiotrack),
                     iconSize: 40,
                     onPressed: () {
                       setState(() {
