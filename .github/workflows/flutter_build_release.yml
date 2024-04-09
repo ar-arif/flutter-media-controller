@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - develop
+name: "Build & Release"
+jobs:
+  build:
+    name: Build & Release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin' # AdoptOpenJDK is now Eclipse Temurin
+          java-version: '17.x' # Latest stable long-term support (LTS) version
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x' # Latest stable Flutter version
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build apk --release --split-per-abi
+      - run: flutter build web --release
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*,build/web"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
+
