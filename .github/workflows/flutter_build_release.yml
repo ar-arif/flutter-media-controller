@@ -2,7 +2,9 @@ on:
   push:
     branches:
       - develop
+
 name: "Build & Release"
+
 jobs:
   build:
     name: Build & Release
@@ -17,12 +19,12 @@ jobs:
         with:
           flutter-version: '3.x' # Latest stable Flutter version
       - run: flutter pub get
-     #- run: flutter test
+      # - run: flutter test
       - run: flutter build apk --release --split-per-abi
       - run: flutter build web --release
       - run: |
-        cd build/web
-        zip -r web.zip .
+          cd build/web
+          zip -r web.zip .
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
